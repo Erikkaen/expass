@@ -1,5 +1,4 @@
 package main.java.Spring.pollapp.controller;
-
 import main.java.Spring.pollapp.model.Poll;
 import main.java.Spring.pollapp.model.User;
 import main.java.Spring.pollapp.model.PollManager;
@@ -22,7 +21,7 @@ public class UserController {
     }
 
     @GetMapping
-    public Collection<User> listUsers() {
+    public Collection<User>  listUsers() {
         return manager.getUsers();
     }
 }

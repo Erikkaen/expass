@@ -1,9 +1,9 @@
 package main.java.Spring.pollapp.model;
-
 import main.java.Spring.pollapp.model.*;
 import org.springframework.stereotype.Component;
 
 import java.util.*;
+
 
 @Component
 public class PollManager {
@@ -31,6 +31,8 @@ public class PollManager {
         polls.put(p.getId(), p);
         return p;
     }
+
+
     public Collection<Poll> getPolls() { return polls.values(); }
 
 
@@ -49,6 +51,7 @@ public class PollManager {
         option.getVotes().add(v);
         return v;
     }
+
     public Collection<Vote> getVotes() { return votes.values(); }
 
 

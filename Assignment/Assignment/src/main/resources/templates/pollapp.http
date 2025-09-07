@@ -1,13 +1,5 @@
 
-POST http://localhost:8080/users
-Content-Type: application/json
 
-{
-  "name": "tom"
-}
-
-### Get users
-GET http://localhost:8080/users
 
 ### Make a completly new user
 POST http://localhost:8080/users
@@ -16,6 +8,10 @@ Content-Type: application/json
 {
   "name": "sara"
 }
+
+### Get users
+GET http://localhost:8080/users
+
 
 
 ### Create a poll

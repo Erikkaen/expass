@@ -1,10 +1,8 @@
 package main.java.Spring.pollapp.controller;
-
 import main.java.Spring.pollapp.model.Poll;
 import main.java.Spring.pollapp.model.User;
 import main.java.Spring.pollapp.model.PollManager;
 import org.springframework.web.bind.annotation.*;
-
 import java.util.Collection;
 
 @RestController
@@ -22,8 +20,11 @@ public class PollController {
                 .filter(u -> u.getId().equals(userId))
                 .findFirst()
                 .orElseThrow();
+
+
         return manager.createPoll(question, owner);
     }
+
 
     @GetMapping
     public Collection<Poll> listPolls() {
