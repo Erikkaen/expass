@@ -1,0 +1,32 @@
+
+POST http://localhost:8080/users
+Content-Type: application/json
+
+{
+  "name": "tom"
+}
+
+### Get users
+GET http://localhost:8080/users
+
+### Make a completly new user
+POST http://localhost:8080/users
+Content-Type: application/json
+
+{
+  "name": "sara"
+}
+
+
+### Create a poll
+POST http://localhost:8080/polls?userId=1&question=Best color?
+
+
+### Cast votes
+POST http://localhost:8080/votes?userId=2&optionId=1
+
+### List the votes
+GET http://localhost:8080/votes
+
+### Delete
+DELETE http://localhost:8080/polls/1

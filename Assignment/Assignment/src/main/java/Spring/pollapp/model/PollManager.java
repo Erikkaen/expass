@@ -12,10 +12,10 @@ public class PollManager {
     private Map<Long, VoteOption> options = new HashMap<>();
     private Map<Long, Vote> votes = new HashMap<>();
 
-    private Long nextUserId = 1L;
-    private Long nextPollId = 1L;
-    private Long nextOptionId = 1L;
-    private Long nextVoteId = 1L;
+    private int nextUserId = 1;
+    private int nextPollId = 1;
+    private int nextOptionId = 1;
+    private int nextVoteId = 1;
 
 
     public User createUser(String name) {
@@ -43,7 +43,7 @@ public class PollManager {
 
 
     public Vote castVote(User user, VoteOption option) {
-        votes.values().removeIf(v -> v.getUser().getId().equals(user.getId())); // overwrite
+        votes.values().removeIf(v -> v.getUser().getId().equals(user.getId()));
         Vote v = new Vote(nextVoteId++, user, option);
         votes.put(v.getId(), v);
         option.getVotes().add(v);
