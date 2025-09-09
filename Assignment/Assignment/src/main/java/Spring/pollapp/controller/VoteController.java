@@ -1,9 +1,9 @@
-package main.java.Spring.pollapp.controller;
-import main.java.Spring.pollapp.model.Vote;
-import main.java.Spring.pollapp.model.User;
-import main.java.Spring.pollapp.model.PollManager;
+package Spring.pollapp.controller;
+import Spring.pollapp.model.Vote;
+import Spring.pollapp.model.User;
+import Spring.pollapp.model.PollManager;
 import org.springframework.web.bind.annotation.*;
-import main.java.Spring.pollapp.model.VoteOption;
+import Spring.pollapp.model.VoteOption;
 import java.util.Collection;
 
 @RestController

@@ -9,14 +9,17 @@ Content-Type: application/json
   "name": "sara"
 }
 
+
+
 ### Get users
 GET http://localhost:8080/users
-
 
 
 ### Create a poll
 POST http://localhost:8080/polls?userId=1&question=Best color?
 
+### Add options
+POST http://localhost:8080/options?pollId=1&text=Red
 
 ### Cast votes
 POST http://localhost:8080/votes?userId=2&optionId=1

@@ -1,6 +1,6 @@
-package main.java.Spring.pollapp.model;
-import main.java.Spring.pollapp.model.*;
+package Spring.pollapp.model;
 import org.springframework.stereotype.Component;
+import org.springframework.web.bind.annotation.PostMapping;
 
 import java.util.*;
 
@@ -12,12 +12,12 @@ public class PollManager {
     private Map<Long, VoteOption> options = new HashMap<>();
     private Map<Long, Vote> votes = new HashMap<>();
 
-    private int nextUserId = 1;
-    private int nextPollId = 1;
-    private int nextOptionId = 1;
-    private int nextVoteId = 1;
+    private Long nextUserId = 1L;
+    private Long nextPollId = 1L;
+    private Long nextOptionId = 1L;
+    private Long nextVoteId = 1L;
 
-
+    @PostMapping
     public User createUser(String name) {
         User u = new User(nextUserId++, name);
         users.put(u.getId(), u);

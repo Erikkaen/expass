@@ -1,7 +1,7 @@
-package main.java.Spring.pollapp.controller;
-import main.java.Spring.pollapp.model.Poll;
-import main.java.Spring.pollapp.model.User;
-import main.java.Spring.pollapp.model.PollManager;
+package Spring.pollapp.controller;
+import Spring.pollapp.model.Poll;
+import Spring.pollapp.model.User;
+import Spring.pollapp.model.PollManager;
 import org.springframework.web.bind.annotation.*;
 import java.util.Collection;
 

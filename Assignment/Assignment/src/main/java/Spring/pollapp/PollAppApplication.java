@@ -1,4 +1,4 @@
-package main.java.Spring.pollapp;
+package Spring.pollapp;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;

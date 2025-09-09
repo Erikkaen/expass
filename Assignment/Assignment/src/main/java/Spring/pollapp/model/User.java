@@ -1,4 +1,4 @@
-package main.java.Spring.pollapp.model;
+package Spring.pollapp.model;
 
 public class User {
     private Long id;
