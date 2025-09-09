@@ -1,7 +1,4 @@
-
-
-
-### Make a completly new user
+### Make a new user
 POST http://localhost:8080/users
 Content-Type: application/json
 
@@ -9,23 +6,46 @@ Content-Type: application/json
   "name": "sara"
 }
 
+### User 2
+POST http://localhost:8080/users
+Content-Type: application/json
+
+{
+"name": "jonas"
+}
 
 
-### Get users
+### User overview
 GET http://localhost:8080/users
 
 
 ### Create a poll
 POST http://localhost:8080/polls?userId=1&question=Best color?
 
-### Add options
-POST http://localhost:8080/options?pollId=1&text=Red
+### Add poll option
+POST http://localhost:8080/polls/options?pollId=1&text=Red
+
+
+### Add poll option
+POST http://localhost:8080/polls/options?pollId=1&text=Lavender
+
+### show polls
+GET http://localhost:8080/polls
 
 ### Cast votes
 POST http://localhost:8080/votes?userId=2&optionId=1
+
+### Cast votes
+POST http://localhost:8080/votes?userId=1&optionId=1
+
+### Changes vote
+POST http://localhost:8080/votes?userId=2&optionId=2
 
 ### List the votes
 GET http://localhost:8080/votes
 
 ### Delete
 DELETE http://localhost:8080/polls/1
+
+### show votes
+GET http://localhost:8080/votes

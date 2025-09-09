@@ -1,5 +1,7 @@
 package Spring.pollapp.model;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
 import java.util.List;
 import java.util.ArrayList;
 
@@ -7,6 +9,7 @@ import java.util.ArrayList;
 public class VoteOption {
     private Long id;
     private String text;
+    @JsonIgnore
     private List<Vote> votes = new ArrayList<>();
 
     public VoteOption() {}

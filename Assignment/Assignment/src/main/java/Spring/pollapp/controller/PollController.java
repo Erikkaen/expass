@@ -2,6 +2,7 @@ package Spring.pollapp.controller;
 import Spring.pollapp.model.Poll;
 import Spring.pollapp.model.User;
 import Spring.pollapp.model.PollManager;
+import Spring.pollapp.model.VoteOption;
 import org.springframework.web.bind.annotation.*;
 import java.util.Collection;
 
@@ -25,6 +26,14 @@ public class PollController {
         return manager.createPoll(question, owner);
     }
 
+    @PostMapping("/options")
+    public VoteOption addOption(@RequestParam Long pollId, @RequestParam String text) {
+        Poll poll = manager.getPolls().stream()
+                .filter(p -> p.getId().equals(pollId))
+                .findFirst()
+                .orElseThrow();
+        return manager.createOption(poll, text);
+    }
 
     @GetMapping
     public Collection<Poll> listPolls() {
