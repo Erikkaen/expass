@@ -6,6 +6,7 @@ import org.springframework.web.bind.annotation.*;
 import Spring.pollapp.model.VoteOption;
 import java.util.Collection;
 
+@CrossOrigin(origins = "http://localhost:5173")
 @RestController
 @RequestMapping("/votes")
 public class VoteController {
