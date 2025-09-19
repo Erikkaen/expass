@@ -1,8 +1,8 @@
-package Spring.pollapp.controller;
-import Spring.pollapp.model.Poll;
-import Spring.pollapp.model.User;
-import Spring.pollapp.model.PollManager;
-import Spring.pollapp.model.VoteOption;
+package Spring.jpa.controller;
+import Spring.jpa.model.Poll;
+import Spring.jpa.model.User;
+import Spring.jpa.model.PollManager;
+import Spring.jpa.model.VoteOption;
 import org.springframework.web.bind.annotation.*;
 import java.util.Collection;
 

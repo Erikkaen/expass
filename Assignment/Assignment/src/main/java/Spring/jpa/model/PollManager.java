@@ -1,16 +1,15 @@
-package Spring.pollapp.model;
+package Spring.jpa.model;
 import org.springframework.stereotype.Component;
 import org.springframework.web.bind.annotation.PostMapping;
 
 import java.util.*;
 
-
 @Component
 public class PollManager {
-    private Map<Long, User> users = new HashMap<>();
-    private Map<Long, Poll> polls = new HashMap<>();
-    private Map<Long, VoteOption> options = new HashMap<>();
-    private Map<Long, Vote> votes = new HashMap<>();
+    private final Map<Long, User> users = new HashMap<>();
+    private final Map<Long, Poll> polls = new HashMap<>();
+    private final Map<Long, VoteOption> options = new HashMap<>();
+    private final Map<Long, Vote> votes = new HashMap<>();
 
     private Long nextUserId = 1L;
     private Long nextPollId = 1L;
@@ -18,8 +17,8 @@ public class PollManager {
     private Long nextVoteId = 1L;
 
     @PostMapping
-    public User createUser(String name) {
-        User u = new User(nextUserId++, name);
+    public User createUser(String name, String email) {
+        User u = new User(nextUserId++, name, email);
         users.put(u.getId(), u);
         return u;
     }
@@ -44,11 +43,11 @@ public class PollManager {
     }
 
 
-    public Vote castVote(User user, VoteOption option) {
+    public Vote castVote(User user, VoteOption votesOn) {
         votes.values().removeIf(v -> v.getUser().getId().equals(user.getId()));
-        Vote v = new Vote(nextVoteId++, user, option);
+        Vote v = new Vote(nextVoteId++, user, votesOn);
         votes.put(v.getId(), v);
-        option.getVotes().add(v);
+        votesOn.getVotes().add(v);
         return v;
     }
 
@@ -57,7 +56,7 @@ public class PollManager {
 
     public void deletePoll(Long pollId) {
         polls.remove(pollId);
-        votes.values().removeIf(v -> v.getOption() != null &&
-                v.getOption().getId().equals(pollId));
+        votes.values().removeIf(v -> v.getVotesOn() != null &&
+                v.getVotesOn().getId().equals(pollId));
     }
 }

@@ -1,10 +1,5 @@
 package Spring.Assignment;
 
-import Spring.pollapp.model.Poll;
-import Spring.pollapp.model.PollManager;
-import Spring.pollapp.model.User;
-import org.junit.jupiter.api.Test;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 
 @SpringBootTest

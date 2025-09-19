@@ -1,7 +1,6 @@
-package Spring.pollapp.controller;
-import Spring.pollapp.model.Poll;
-import Spring.pollapp.model.User;
-import Spring.pollapp.model.PollManager;
+package Spring.jpa.controller;
+import Spring.jpa.model.User;
+import Spring.jpa.model.PollManager;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.Collection;
@@ -19,7 +18,7 @@ public class UserController {
     //RequestParam if I don't want json
     @PostMapping
     public User createUser(@RequestBody User user) {
-        return manager.createUser(user.getName());
+        return manager.createUser(user.getName(), user.getEmail());
     }
 
     @GetMapping
