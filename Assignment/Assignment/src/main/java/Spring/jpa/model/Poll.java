@@ -1,12 +1,16 @@
 package Spring.jpa.model;
 
 import jakarta.persistence.*;
+import org.springframework.data.annotation.Id;
+
 import java.util.ArrayList;
 import java.util.List;
 
 @Entity
 public class Poll {
 
+
+    @jakarta.persistence.Id
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
@@ -53,8 +57,17 @@ public class Poll {
         return voteOption;
     }
 
-    public Long getId() { return id; }
-    public void setId(Long id) { this.id = id; }
+
+    public Long getId() {
+        return id;
+    }
+
+    public void setId(Long id) {
+        this.id = id;
+    }
+
+    //public Long getId() { return id; }
+    //public void setId(Long id) { this.id = id; }
 
     public String getCaption() { return caption; }
     public void setCaption(String caption) { this.caption = caption; }
