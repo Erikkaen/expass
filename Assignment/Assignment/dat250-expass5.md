@@ -14,8 +14,8 @@ structure.
 6. I went to change my KTS file and add the needed implement. I printed the main method into my main method from the
 assignment text, and I got out a "PONG" when running gradlew. 
 7. I started looking at the "nosql" lectureexample to see the use of redis and redisconfig. I then made the 
-"repository" package, and added a "config" package as well and added the classes/interfaces needed like the example.
-I struggled back and forth with having the correct implementations and imports, but I finally got rid of all the red lines. 
+"repository" package, and added a "config" package with "MongoConfig" and "RedisConfig" as well and added the classes/interfaces needed like the example.
+I struggled back and forth with having the correct implementations and imports and installing them, but I finally got rid of all the red lines. 
 I also noticed I had to change my ID's in "Poll" to long instead of string. I then used commands and connected to redis
 to test:
 
