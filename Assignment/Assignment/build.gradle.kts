@@ -24,6 +24,8 @@ dependencies {
     implementation("org.springframework.boot:spring-boot-starter-data-mongodb")
     implementation("org.springframework.boot:spring-boot-starter-data-redis")
     implementation("org.springframework.boot:spring-boot-starter-web")
+    implementation("org.springframework.boot:spring-boot-starter-amqp")
+
 
 
     implementation("org.hibernate.orm:hibernate-core:7.1.1.Final")
@@ -36,8 +38,38 @@ dependencies {
     testImplementation("org.springframework.boot:spring-boot-starter-test")
 	testRuntimeOnly("org.junit.platform:junit-platform-launcher")
     runtimeOnly("com.h2database:h2")
+    implementation("com.rabbitmq:amqp-client:5.21.0")
+
 }
 
 tasks.withType<Test> {
 	useJUnitPlatform()
 }
+
+
+
+tasks.register("produce", JavaExec::class) {
+    mainClass = "package Spring.jpa.messaging.PollProducer;"
+    classpath = sourceSets.named("main").get().runtimeClasspath
+    group = "messaging"
+}
+
+tasks.register("consumer", JavaExec::class) {
+    mainClass = "package Spring.jpa.messaging.PollConsumer"
+    classpath = sourceSets.named("main").get().runtimeClasspath
+    group = "messaging"
+}
+
+/**
+tasks.register("exhangeProduce", JavaExec::class) {
+    mainClass = "no.hvl.dat250.messaging.ExchangeProducer"
+    classpath = sourceSets.named("main").get().runtimeClasspath
+    group = "messaging"
+}
+
+tasks.register("exchangeConsumer", JavaExec::class) {
+    mainClass = "no.hvl.dat250.messaging.ExchangeConsumer"
+    classpath = sourceSets.named("main").get().runtimeClasspath
+    group = "messaging"
+}
+**/

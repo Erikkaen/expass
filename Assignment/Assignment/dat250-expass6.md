@@ -1,12 +1,15 @@
-DAT250: Software Technology Experiment Assignment 3
+DAT250: Software Technology Experiment Assignment 6
 
-1. I started with downloading node, and then downloading Svelte.
-2. I started looking up the syntax of the language with was alright, and decided to immediately add the
-   CORS, so I could see if I could get in and push out the right data when I made my functions in svelte files.
-3. I made the three components mentioned in the introduction, and looked at the svelte examples from their homepage
-   to make the simplest setup I could, and added some design underneath as well. I saw a few examples as well.
-4. I was satisfied and decided to deploy - I then saw at my design showed up at the localhost:8080. I no longer had
-   to run npm run dev.
-5. I tested the app and saw that I had to refresh to see that I created any user or polls or options, which is quite annoying.
-   I fixed this by updating the "nmp run build", there as probably a bug in a previous code. 
-
+1. I went to install RabbitMQ as recommended in the assignment text. I downloaded through docker with this command:
+docker run -it --rm --name rabbitmq -p 5672:5672 -p 15672:15672 rabbitmq:4-management
+2. I went to the UI on the web with http://localhost:15672/, and got a cool log in. When I logged in I saw information about the server.
+3. I added rabbitmq implementation to my build kts file, and made a package named "messaging", which I wanted to have my Consumer and 
+Producer files (which is like the lecture examples on messages). I also added the host manually to application.properties.
+4. I made the classes "PollProducer" and "PollConsumer" that looked like the lecture example, getting the localhost.
+5. I also added tasks to the build.gradle.kts which linked to my classes.
+6. I adjusted "createPoll" in PollManager to queue in RabbitMQ for each new poll, and gets them for each vote.
+7. PollProducer connects to the server and declares queues and publishes messages to the queue while PollConsumer
+declares and acknowledges the messages and processes incoming messages with subscribing to the queue. 
+8. Because of my earlier code I was really confused how to make the different classes interact and have the
+correct datatype. It took a lot of trial and error with syntax and impelementations (had the wrong version in gradle etc),
+until I could see the results on the OverView Rabbit Page.
